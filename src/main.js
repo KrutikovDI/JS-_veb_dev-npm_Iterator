@@ -27,20 +27,24 @@ export default class Team {
   }
 
   iterator = function() {
-    let current = 0;
-    let last = this.players.length;
-    return {
-      next() {
-        if (current <= last) {
-          return {
-            value: this.players[current++],
-            done: false
-          }
-        }
-        return {
-          done: true
-        }
-      }
-    }
+    return this.players[Symbol.iterator]() 
   }
+
+  // iterator = function() {
+  //   let current = 0;
+  //   let last = this.players.length-1;
+  //   return {
+  //     next() {
+  //       if (current <= last) {
+  //         return {
+  //           value: this.players[current++],
+  //           done: false
+  //         }
+  //       }
+  //       return {
+  //         done: true
+  //       }
+  //     }
+  //   }
+  // }
 }
