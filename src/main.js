@@ -1,8 +1,6 @@
 export default class Team {
   constructor() {
-  }
-  iterator = function() {
-    const team = [{
+    this.players = [{
       name: 'Лучник',
       type: 'Bowman',
       health: 50,
@@ -26,13 +24,16 @@ export default class Team {
       attack: 40,
       defence: 10,
     }]
+  }
+
+  iterator = function() {
     let current = 0;
-    let last = 2;
+    let last = this.players.length;
     return {
       next() {
         if (current <= last) {
           return {
-            value: team[current++],
+            value: this.players[current++],
             done: false
           }
         }
